@@ -20,7 +20,7 @@ export default function fellowship (){
                 height={230}
                 alt="the-fellowship-of-the-ring"
             />
-            <h6><Link href="./the-fellowship-of-the-ring">Previous Volume</Link></h6>
+            <h6><Link href="./the-two-towers">Previous Volume</Link></h6>
         </div>
     )
 }
