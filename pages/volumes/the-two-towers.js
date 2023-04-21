@@ -1,21 +1,20 @@
 import Link from "next/link";
 import { volumes } from "../../lib/data";
 
-export default function towers (){
+export default function fellowship (){
+    const towerVolume = volumes.find(({slug}) => slug === "the-two-towers")
     return (
         <div>
             <Link href="../">← All Volumes</Link>
             <h1>{volumes[1].title}</h1>
             <p>{volumes[1].description}</p>
-            <div>
-                {volumes[1].books.map((book)=> (
-                    <ul>
-                        <li>{book.ordinal}</li>
-                        <li>{book.title}</li>   
-                    </ul>                 
+            <ul>
+                {towerVolume.books.map((book)=> (
+                    <>
+                    <li key={towerVolume.books.ordinal}>{book.ordinal}: {book.title}</li>                    
+                    </>
                 ))}
-                {console.log(volumes[1].books)}                           
-            </div>       
+            </ul>
         </div>
     )
 }
