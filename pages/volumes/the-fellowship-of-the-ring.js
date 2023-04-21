@@ -4,36 +4,19 @@ import { volumes } from "../../lib/data";
 export default function fellowship (){
     return (
         <div>
-        <Link href="../">← All Volumes</Link>
-        <div>
-            {volumes?.map((volume)=> (
-                <>
-                <h1>{volume.title}</h1>
-                <p>{volume.description}</p>
-                <ul>
-                    <li>
-                    {volumes?.map((volume)=> volume.books.map((book)=> book.ordinal))
-                    }
-                    </li>
-                    <li>
-                    {volumes?.map((volume)=> volume.books.map((book)=> book.title))
-                    }
-                    </li>
-                </ul>
-                </>
-            ))}
+            <Link href="../">← All Volumes</Link>
+            <h1>{volumes[0].title}</h1>
+            <p>{volumes[0].description}</p>
+            <div>
+                {volumes[0].books.map((book)=> (
+                    <ul>
+                        <li>{book.ordinal}</li>
+                        <li>{book.title}</li>   
+                    </ul>                 
+                ))}
+                {console.log(volumes[0].books)}                           
+            </div>       
         </div>
-        <ul>
-
-        </ul>
-    </div>
     )
 }
 
-{/* <ul>
-{volumes?.map((volume)=> (      // important to use "?" / "volumes && volumes.map" bc possibly the array may not exist/have no data yet
-  <li key={volume.slug}>
-    <Link href={`/volumes/${volume.slug}`}>{volume.title}</Link>
-  </li>
-))}
-</ul> */}
