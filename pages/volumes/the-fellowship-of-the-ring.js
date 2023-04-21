@@ -25,7 +25,7 @@ export default function fellowship (){
                 {console.log(volumes[0].books)}                           
             </div>        */}
             <Image 
-                src="/public/images/the-fellowship-of-the-ring.png" 
+                src={volumes[0].cover} 
                 width={140}
                 height={230}
                 alt="the-fellowship-of-the-ring"
