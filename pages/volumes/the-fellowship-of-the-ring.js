@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { volumes } from "../../lib/data";
 
 export default function fellowship (){
@@ -9,10 +10,8 @@ export default function fellowship (){
             <h1>{volumes[0].title}</h1>
             <p>{volumes[0].description}</p>
             <ul>
-                {fellowshipVolume.books.map((book)=> (
-                    <>
-                    <li key={fellowshipVolume.books.ordinal}>{book.ordinal}: {book.title}</li>                    
-                    </>
+                {fellowshipVolume.books.map((book, i)=> (                    
+                    <li key={i}>{book.ordinal}: {book.title}</li>                   
                 ))}
             </ul>
 
@@ -25,6 +24,13 @@ export default function fellowship (){
                 ))}
                 {console.log(volumes[0].books)}                           
             </div>        */}
+            <Image 
+                src="/public/the-fellowship-of-the-ring" 
+                width={140}
+                height={230}
+                alt="the-fellowship-of-the-ring"
+            />
+            <h6><Link href="./the-two-towers">Next Volume</Link></h6>
         </div>
     )
 }

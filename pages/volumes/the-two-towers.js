@@ -9,12 +9,12 @@ export default function fellowship (){
             <h1>{volumes[1].title}</h1>
             <p>{volumes[1].description}</p>
             <ul>
-                {towerVolume.books.map((book)=> (
-                    <>
-                    <li key={towerVolume.books.ordinal}>{book.ordinal}: {book.title}</li>                    
-                    </>
+                {towerVolume.books.map((book, i)=> (                    
+                    <li key={i}>{book.ordinal}: {book.title}</li>
                 ))}
             </ul>
+            <h6><Link href="./the-fellowship-of-the-ring">Previous Volume</Link></h6>
+            <h6><Link href="./the-return-of-the-king">Next Volume</Link></h6>
         </div>
     )
 }
