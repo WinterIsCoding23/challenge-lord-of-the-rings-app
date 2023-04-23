@@ -17,7 +17,9 @@ export default function VolumeDetail () {
 
     const volumeIndex = volumes.findIndex((element)=> element.slug === volume);
     console.log("volumeIndex: ", volumeIndex);
-    const previousVolumeIndex = volumeIndex >= 1 ? volumeIndex -1 : "0";
+
+    const previousVolumeIndex = volumeIndex >= 1 ? volumeIndex -1 : volumeIndex +2;        
+    const nextVolumeIndex = volumeIndex !== 2 ? volumeIndex +1 : volumeIndex -2;        
 
     return (    
         <>
@@ -36,7 +38,8 @@ export default function VolumeDetail () {
                 height={230}
                 alt={volumeSite.slug}
             />
-            <h6><Link href={`/volumes/${volumes[previousVolumeIndex].slug}`} >Previous volume</Link></h6>
+            <h6><Link href={`/volumes/${volumes[previousVolumeIndex].slug}`} >Previous volume</Link></h6> 
+            <h6><Link href={`/volumes/${volumes[nextVolumeIndex].slug}`} >Next volume</Link></h6>
         </>
     )
 }
