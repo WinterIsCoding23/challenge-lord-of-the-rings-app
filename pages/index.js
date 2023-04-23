@@ -10,8 +10,8 @@ export default function HomePage() {
       <p>{introduction}</p>
       <h2>All Volumes</h2>
       <ul>
-        {volumes?.map((volume)=> (      // important to use "?" / "volumes && volumes.map" bc possibly the array may not exist/have no data yet
-          <li key={volume.slug}>
+        {volumes?.map((volume, index)=> (      // important to use "?" / "volumes && volumes.map" bc possibly the array may not exist/have no data yet
+          <li key={index}>
             <Link href={`/volumes/${volume.slug}`}>{volume.title}</Link>
           </li>
         ))}

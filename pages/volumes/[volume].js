@@ -40,6 +40,7 @@ export default function VolumeDetail () {
             />
             <h6><Link href={`/volumes/${volumes[previousVolumeIndex].slug}`} >Previous volume</Link></h6> 
             <h6><Link href={`/volumes/${volumes[nextVolumeIndex].slug}`} >Next volume</Link></h6>
+            <h6><Link href="/" >All volumes</Link></h6>
         </>
     )
 }
