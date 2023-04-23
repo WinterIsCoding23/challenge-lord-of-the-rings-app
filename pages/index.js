@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { introduction, volumes } from "../lib/data";
 
 export default function HomePage() {
+  const router = useRouter();
   return (
     <div>
       <h1>Lord of the Rings</h1>
