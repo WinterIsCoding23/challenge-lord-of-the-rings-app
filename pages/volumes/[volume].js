@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 
 import Image from "next/image";
+import Link from "next/link";
 
 import { volumes } from "../../lib/data";
 
@@ -10,9 +11,13 @@ export default function VolumeDetail () {
     const { volume } = router.query;
     console.log("slug: ", volume); 
 
-    let volumeSite = volumes.find((element)=> element.slug === volume)
+    let volumeSite = volumes.find((element)=> element.slug === volume);
     //console.log("volume", volume);
     console.log("volumeSite: ", volumeSite);
+
+    const volumeIndex = volumes.findIndex((element)=> element.slug === volume);
+    console.log("volumeIndex: ", volumeIndex);
+    const previousVolumeIndex = volumeIndex >= 1 ? volumeIndex -1 : "0";
 
     return (    
         <>
@@ -26,11 +31,12 @@ export default function VolumeDetail () {
                 </li>
             </ul>
             <Image 
-                src={volumes[1].cover} 
+                src={volumeSite.cover} 
                 width={140} 
                 height={230}
-                alt="the-two-towers"
+                alt={volumeSite.slug}
             />
+            <h6><Link href={`/volumes/${volumes[previousVolumeIndex].slug}`} >Previous volume</Link></h6>
         </>
     )
 }
